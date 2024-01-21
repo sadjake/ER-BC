@@ -16,6 +16,21 @@ body {
   min-height: 100vh;
 }
 
+.confirmation {
+  background-color: rgba(52, 84, 158, 0.3);
+  opacity: 0.8;
+  padding: 30px;
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.home-button {
+  margin-top: 50px;
+}
+
 .main {
   background-color: rgba(52, 84, 158, 0.3);
   opacity: 0.8;
