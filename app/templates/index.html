@@ -13,19 +13,12 @@
       href="{{ url_for('static', filename='css/styles.css') }}"
     />
     <!-- favicon -->
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="{{ url_for('static', filename='images/icon/favicon.ico') }}"
-    />
-
+    <link rel="icon" type="image/x-icon" href="icon/favicon.ico" />
     <!-- fontawesome -->
     <script
       src="https://kit.fontawesome.com/5db186dfe3.js"
       crossorigin="anonymous"
     ></script>
-    <!-- Google Maps JavaScript API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places"></script>
   </head>
 
   <body>
@@ -67,6 +60,8 @@
           <p>Wait Time: 30 minutes</p>
         </div>
       </div>
+      <div id="nearestHospitals"></div>
+      <!-- Container for displaying nearest hospitals -->
     </section>
 
     <!-- JavaScript for location retrieval and hospital calculation -->

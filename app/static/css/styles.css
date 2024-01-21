@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 body {
   background-image: linear-gradient(to left, #e8f9f6, #fffaeb, #d7e3fb);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: #090f22;
   max-width: 60%;
   margin: auto;
@@ -30,7 +29,7 @@ body {
 
 a {
   text-decoration: none;
-  color:#090f22;
+  color: #090f22;
 }
 
 a:hover {
@@ -113,6 +112,10 @@ button {
   border-radius: 10px;
 }
 
+.search-bar button:hover {
+  background: #fec4b8;
+}
+
 /* location-bar styles */
 
 .location-bar button {
@@ -122,6 +125,11 @@ button {
   border: none;
   cursor: pointer;
 }
+
+.location-bar button:hover {
+  background: #fec4b8;
+}
+
 .location-bar p {
   margin-right: 10px; /* Adjust as needed */
 }
@@ -158,6 +166,26 @@ button {
   border-radius: 6px;
 }
 
+/* tooltip hovers */
+.bubble {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.text {
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
 .tooltip .tooltiptext {
   visibility: hidden;
   background-color: black;
@@ -167,6 +195,8 @@ button {
   border-radius: 6px;
   position: absolute;
   z-index: 1;
+  width: 150px; /* Set the initial width or adjust as needed */
+  transition: width 0.3s ease; /* Add a smooth transition effect */
 }
 
 .tooltip .tooltiptext::after {
@@ -183,6 +213,7 @@ button {
 .tooltip:hover .tooltiptext {
   visibility: visible;
   background: #d7e3fb;
+  width: 200px; /* Set the wider width when hovering or adjust as needed */
 }
 
 .tooltip:hover .text {
@@ -199,7 +230,6 @@ button {
   text-align: right;
 }
 
-
 .form-inputs input {
   padding: 6px;
   margin-top: 10px;
@@ -208,11 +238,11 @@ button {
   border: none;
   background: #d7e3fb;
   border-radius: 10px;
-  display:inline-block;
-  width:200px;
-  margin-left:100px;
-  margin-right:600px;
-  text-align:left;
+  display: inline-block;
+  width: 200px;
+  margin-left: 100px;
+  margin-right: 600px;
+  text-align: left;
 }
 
 .form-inputs select {
@@ -223,11 +253,11 @@ button {
   border: none;
   background: #d7e3fb;
   border-radius: 10px;
-  display:inline-block;
-  width:200px;
-  margin-left:100px;
-  margin-right:600px;
-  text-align:left;
+  display: inline-block;
+  width: 200px;
+  margin-left: 100px;
+  margin-right: 600px;
+  text-align: left;
 }
 
 .form-inputs textarea {
@@ -238,9 +268,9 @@ button {
   border: none;
   background: #d7e3fb;
   border-radius: 10px;
-  display:inline-block;
-  width:200px;
-  margin-left:100px;
-  margin-right:600px;
-  text-align:left;
+  display: inline-block;
+  width: 200px;
+  margin-left: 100px;
+  margin-right: 600px;
+  text-align: left;
 }
