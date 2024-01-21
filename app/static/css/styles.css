@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
 body {
   background-image: linear-gradient(to left, #e8f9f6, #fffaeb, #d7e3fb);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
   color: #090f22;
   max-width: 60%;
   margin: auto;
@@ -23,6 +26,16 @@ body {
 
 .header {
   font-size: 40px;
+}
+
+a {
+  text-decoration: none;
+  color:#090f22;
+}
+
+a:hover {
+  font-weight: bold;
+  color: #090f22;
 }
 
 .subheader {
@@ -71,13 +84,21 @@ button {
   border-radius: 50%;
 }
 
+/* search and location !!! */
+#search-location {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px; /* Adjust as needed */
+  padding-bottom: 3%;
+}
+
 /* index search bar */
 .search-bar button {
-  float: right;
   padding: 6px 10px;
   margin-top: 8px;
 
-  background: #fff;
+  background: #d7e3fb;
   font-size: 17px;
   border: none;
   cursor: pointer;
@@ -95,14 +116,19 @@ button {
 /* location-bar styles */
 
 .location-bar button {
-  float: right;
-  padding: 6px 10px;
-  margin-top: 8px;
-
+  padding: 8px;
   background: #fff;
   font-size: 17px;
   border: none;
   cursor: pointer;
+}
+.location-bar p {
+  margin-right: 10px; /* Adjust as needed */
+}
+
+.location-bar {
+  display: flex;
+  align-items: center;
 }
 
 /*logo */
@@ -113,23 +139,31 @@ button {
 }
 
 /* tooltip hovers */
+.bubble {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+}
 
 .tooltip {
   position: relative;
   display: inline-block;
-  width: relative;
+}
+
+.text {
+  background-color: white; /* Set the background color for the text */
+  padding: 5px 10px; /* Adjust as needed */
+  border-radius: 6px; /* Match the border-radius to the tooltip */
 }
 
 .tooltip .tooltiptext {
   visibility: hidden;
-
   background-color: black;
   color: #fff;
   text-align: center;
   padding: 5px 0;
   border-radius: 6px;
 
-  /* Position the tooltip text - see examples below! */
   position: absolute;
   z-index: 1;
 }
@@ -150,24 +184,19 @@ button {
   background: #d7e3fb;
 }
 
-.tooltip:hover {
-  visibility: visible;
+.tooltip:hover .text {
   background: #3679ff;
+  color: white;
 }
-
-/* body bubbles */
-
-.bubble {
-  background-color: white;
-  padding: 15px;
-  border-radius: 10px;
-}
-
-/* wait times */
 
 .waitTime {
+  background-color: white; /* Set the background color for the wait time text */
+  padding: 10px; /* Adjust as needed */
+  border-radius: 6px; /* Match the border-radius to the tooltip */
+  margin-top: 10px; /* Adjust as needed */
   text-align: right;
 }
+
 
 .form-inputs input {
   padding: 6px;
