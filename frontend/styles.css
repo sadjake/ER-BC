@@ -1,4 +1,5 @@
 body {
+<<<<<<< HEAD
     background-image: linear-gradient(to left, #E8F9F6 , #FFFAEB, #D7E3FB);
     font-family: Arial, Helvetica, sans-serif;
     color: #090f22;
@@ -26,12 +27,35 @@ body {
 
 .subheader {
    font-size: 30px; 
+=======
+  background-image: linear-gradient(to left, #e8f9f6, #fffaeb, #d7e3fb);
+  font-family: Arial, Helvetica, sans-serif;
+  color: #090f22;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.main {
+  background-color: rgba(52, 84, 158, 0.5);
+  opacity: 0.8;
+  padding: 30px;
+  border-radius: 10%;
+}
+
+.hospitalInside {
+  display: flex;
+>>>>>>> ccbcd8a63716da5243f79976a830f426186425fc
 }
 
 .map {
-    padding: 10px;  
+  padding: 10px;
 }
 
+<<<<<<< HEAD
 
 .action {
     padding-top: 40px;
@@ -63,3 +87,47 @@ button {
     font-size: 20px;
     font-weight: bold;
 }
+=======
+.rounded {
+  border-radius: 50%;
+}
+
+/* index search bar */
+.search-bar button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #fff;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.search-bar input[type="text"] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+  background: #d7e3fb;
+}
+
+/*location-bar styles */
+
+.location-bar button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #fff;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+/*logo */
+.logo {
+  height: 5vh;
+  background: url("images/logo.png");
+}
+>>>>>>> ccbcd8a63716da5243f79976a830f426186425fc
