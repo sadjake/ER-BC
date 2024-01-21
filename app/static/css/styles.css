@@ -158,6 +158,8 @@ button {
   background-color: white;
   padding: 15px;
   border-radius: 10px;
+  display: flex; /* Add display: flex to make it a flex container */
+  align-items: center; /* Align items vertically in the cross-axis */
 }
 
 .tooltip {
@@ -166,9 +168,9 @@ button {
 }
 
 .text {
-  background-color: white; /* Set the background color for the text */
-  padding: 5px 10px; /* Adjust as needed */
-  border-radius: 6px; /* Match the border-radius to the tooltip */
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 6px;
 }
 
 .tooltip .tooltiptext {
@@ -178,7 +180,6 @@ button {
   text-align: center;
   padding: 5px 0;
   border-radius: 6px;
-
   position: absolute;
   z-index: 1;
 }
@@ -187,7 +188,7 @@ button {
   content: " ";
   position: absolute;
   top: 50%;
-  right: 100%; /* To the left of the tooltip */
+  right: 100%;
   margin-top: -5px;
   border-width: 5px;
   border-style: solid;
@@ -205,10 +206,11 @@ button {
 }
 
 .waitTime {
-  background-color: white; /* Set the background color for the wait time text */
-  padding: 10px; /* Adjust as needed */
-  border-radius: 6px; /* Match the border-radius to the tooltip */
-  margin-top: 10px; /* Adjust as needed */
+  background-color: white;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 10px;
+  margin-left: 10px;
   text-align: right;
 }
 
