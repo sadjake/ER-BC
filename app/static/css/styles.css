@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
 body {
   background-image: linear-gradient(to left, #e8f9f6, #fffaeb, #d7e3fb);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
   color: #090f22;
   max-width: 60%;
   margin: auto;
@@ -23,6 +26,16 @@ body {
 
 .header {
   font-size: 40px;
+}
+
+a {
+  text-decoration: none;
+  color:#090f22;
+}
+
+a:hover {
+  font-weight: bold;
+  color: #090f22;
 }
 
 .subheader {
@@ -184,4 +197,50 @@ button {
   margin-top: 10px;
   margin-left: 10px;
   text-align: right;
+}
+
+
+.form-inputs input {
+  padding: 6px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 17px;
+  border: none;
+  background: #d7e3fb;
+  border-radius: 10px;
+  display:inline-block;
+  width:200px;
+  margin-left:100px;
+  margin-right:600px;
+  text-align:left;
+}
+
+.form-inputs select {
+  padding: 6px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 17px;
+  border: none;
+  background: #d7e3fb;
+  border-radius: 10px;
+  display:inline-block;
+  width:200px;
+  margin-left:100px;
+  margin-right:600px;
+  text-align:left;
+}
+
+.form-inputs textarea {
+  padding: 6px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 17px;
+  border: none;
+  background: #d7e3fb;
+  border-radius: 10px;
+  display:inline-block;
+  width:200px;
+  margin-left:100px;
+  margin-right:600px;
+  text-align:left;
 }
