@@ -1,6 +1,6 @@
 # Dummy data for hospitals and their wait times
 hospitals = [
-    {"id":"vgh", "name": "Vancouver General Hospital", "location": "920 West 10th Ave Vancouver, BC, V5Z 1M9", "phone-number": "(604) 875-4111", "wait_time": 30, "lat": 49.26236, "lng": -123.12422},
+    {"id":"vgh", "name": "Vancouver General Hospital", "location": "920 West 10th Ave Vancouver, BC, V5Z 1M9", "phone-number": "(604) 875-4111", "wait_time": -2, "lat": 49.26236, "lng": -123.12422},
     {"id":"rh", "name": "Richmond Hospital", "location": "7000 Westminster Highway Richmond, BC, V6X 1A2", "phone-number": "(604) 278-9711", "wait_time": 45, "lat": 49.16882, "lng": -123.1468},
     {"id":"sph", "name": "St. Paul's Hospital", "location": "1081 Burrard St Vancouver, BC, V6Z 1Y6", "phone-number": "(604) 682-2344", "wait_time": 45, "lat": 49.28072, "lng": -123.12855},
     {"id":"lgh", "name": "Lions Gate Hospital", "location": "231 East 15th St North Vancouver, BC, V7L 2L7", "phone-number": "(604) 988-3131", "wait_time": 20, "lat": 49.32087, "lng": -123.06771},

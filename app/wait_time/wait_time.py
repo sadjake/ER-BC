@@ -14,7 +14,7 @@ class WaitTime():
         if add_subtract or (self._wait_time - delta_time) < 0:
             self._wait_time += delta_time
         else:
-            self._wait_time -= random.randint(1, 5)
+            self._wait_time -= delta_time
 
     def get_id(self):
         return self._id
