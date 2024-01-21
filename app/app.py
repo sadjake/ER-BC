@@ -50,6 +50,10 @@ def confirmation_page():
     # render a confirmation page or redirect to another page
     return render_template('confirmation.html')
 
+@app.route('/hospital')
+def hospital_page():
+    # render a hospital page or redirect to another page
+    return render_template('hospital.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
