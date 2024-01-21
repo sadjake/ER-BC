@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ hospital['name'] }} Hospital</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <script
+    src="https://cdn.socket.io/4.7.4/socket.io.min.js"
+    integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4"
+    crossorigin="anonymous"
+  ></script>
 </head>
 
 <body class="hospital">
@@ -22,8 +27,8 @@
             <container class="rightSide">
                 <h3 class="subheader">Estimated Wait Time:</h3>
                 <div class="waitTime">
-                    <h3 class="bigTime" id="wait-time">{{ hospital['wait_time'] }} minutes</h3>
-                    <p>Last updated: {{ hospital['date'] }}</p>
+                    <h3 class="bigTime" id="wait-time"></h3>
+                    <p id="last-updated"></p>
                 </div>
 
                 <div class="action">
@@ -37,13 +42,25 @@
         // Add a script to update wait time dynamically using Socket.IO
         var socket = io();
 
-        socket.on('wait_time_update', (msg) => {
-            const updatedWaitTime = msg.data.wait_time;
-            const lastUpdated = msg.data.date;
+        const setWaitTime = (msg) => {
+            const updatedWaitTime = msg.data['{{ hospital["id"] }}'].wait_time;
+            const lastUpdated = msg.data['{{ hospital["id"] }}'].date;
+            // const lastUpdated = msg.data.date;
+            console.log(updatedWaitTime)
 
             // Update the wait time and last updated time on the page
             document.getElementById('wait-time').innerText = updatedWaitTime + ' minutes';
             document.getElementById('last-updated').innerText = 'Last updated: ' + lastUpdated;
+        }
+
+        socket.on('connected', (msg) => {
+            console.log('connected to server');
+            setWaitTime(msg);
+
+        });
+
+        socket.on('wait_time_update', (msg) => {
+            setWaitTime(msg);
         });
     </script>
 </body>
