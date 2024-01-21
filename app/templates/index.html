@@ -26,8 +26,6 @@
                 latitude: position.coords.latitude,
                 longitude: position.coords.longitude,
               };
-
-<<<<<<< HEAD
               findNearestHospitals(
                 userLocation.latitude,
                 userLocation.longitude
@@ -40,49 +38,6 @@
         } else {
           console.error("Geolocation is not supported by this browser");
         }
-=======
-          const hospitalData = msg.data;
-          Object.entries(hospitalData).forEach(([id, props]) => {
-            const name = props.name;
-            const waitTime = props.wait_time;
-            const date = props.date;
-
-            const divId = `div-${id}`;
-            const waitTimeTextId = `wait-time-p-${id}`;
-            const dateTextId = `date-${id}`;
-            
-            const waitTimeText = 'Wait time: ' + waitTime +' minutes';
-            const dateText = 'Last Updated: ' + date;
-  
-            // Create the main container div with the class 'bubble'
-            var hospitalDiv = $('<div>').addClass('bubble').attr('id', divId);
-
-            // Create the tooltip div with the class 'tooltip' and its content
-            var tooltipDiv = $('<div>').addClass('tooltip').html(`<a href="/hospital/${id}">${name}</a>`);
-
-            // Create the span with the class 'tooltiptext' and its content
-            var tooltipTextSpan = $('<span>').addClass('tooltiptext').text('Click for directions and form');
-
-            // Append the span to the tooltip div
-            tooltipDiv.append(tooltipTextSpan);
-
-            // Create the waitTime div with the class 'waitTime' and its content
-            var waitTimeDiv = $('<div>').addClass('waitTime').attr('id', divId);
-            // Creating <p> elements
-            var waitTimeParagraph = $('<p>').text(waitTimeText).attr('id', waitTimeTextId);
-            var dateParagraph = $('<p>').text(dateText).attr('id', dateTextId);
-
-            // Appending the <p> element to the waitTimeDiv
-            waitTimeDiv.append(waitTimeParagraph, dateParagraph);
-
-            // Append the tooltip and waitTime divs to the main container div
-            hospitalDiv.append(tooltipDiv, waitTimeDiv);
-
-            // Append the main container div to the body or any other desired element
-            $('#main').append(hospitalDiv); 
-        
->>>>>>> ce43289bd08c71a64f0d5624b1728a405716e1bc
-      });
 
       function calculateDistance(userLocation, hospitalLocation) {
         // this is the radius of the aerth in km lol
@@ -198,6 +153,7 @@
           );
         });
       }
+    }); 
 
       socket.on("connected", (msg) => {
         console.log("connected to server.");
@@ -246,7 +202,7 @@
           // Append the main container div to the body or any other desired element
           $("#main").append(hospitalDiv);
         });
-
+      })
         socket.on("wait_time_update", (msg) => {
           const hospitalData = msg.data;
           Object.entries(hospitalData).forEach(([id, props]) => {
@@ -262,7 +218,7 @@
             $("#" + dateTextId).text(dateText);
           });
         });
-      });
+     
     });
   </script>
   <head>
