@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ hospital['name'] }} Hospital</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/icon/favicon.ico') }}" />
     <script
     src="https://cdn.socket.io/4.7.4/socket.io.min.js"
     integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4"
@@ -19,8 +20,8 @@
         <p class="pageConnecter"><a href="{{ url_for('index') }}">Go back</a></p>
         <h2 class="header">{{ hospital['name'] }}</h2>
         <container class="hospitalInside">
-            <p>Phone: {{ hospital['phone-number'] }} </p>
-            <p>Address: {{ hospital['location'] }} </p>
+            <p><strong>Phone:</strong> {{ hospital['phone-number'] }} </p>
+            <p><strong>Address:</strong> {{ hospital['location'] }} </p>
             <div class="map">
                 <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBZLF6d9OhEH6aW6J0AlySGb3JBgytUeIU&q={{ hospital['lat'] }},{{ hospital['lng'] }}" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>

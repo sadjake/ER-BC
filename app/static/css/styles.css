@@ -16,6 +16,10 @@ body {
   min-height: 100vh;
 }
 
+strong {
+  font-weight: bold;
+}
+
 .confirmation {
   background-color: rgba(52, 84, 158, 0.3);
   opacity: 0.8;
@@ -103,6 +107,10 @@ button {
   border-radius: 50%;
 }
 
+.fixed-top {
+  text-align: center;
+}
+
 /* search and location !!! */
 #search-location {
   display: flex;
@@ -173,6 +181,8 @@ button {
   border-radius: 10px;
   display: flex; /* Add display: flex to make it a flex container */
   align-items: center; /* Align items vertically in the cross-axis */
+  margin-bottom: 20px;
+  justify-content: space-between;
 }
 
 .tooltip {
@@ -238,7 +248,7 @@ button {
 
 .tooltip:hover .text {
   background: #3679ff;
-  color: white;
+ 
 }
 
 .waitTime {
