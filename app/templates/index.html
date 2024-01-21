@@ -175,7 +175,9 @@
           var hospitalDiv = $("<div>").addClass("bubble").attr("id", divId);
 
           // Create the tooltip div with the class 'tooltip' and its content
-          var tooltipDiv = $("<div>").addClass("tooltip").text(name);
+          var hospitalTextDiv = $("<div>").addClass("tooltip");
+          var hospitalText = $(`<a href="hospital/${id}">`).text(name);
+          hospitalTextDiv.append(hospitalText);
 
           // Create the span with the class 'tooltiptext' and its content
           var tooltipTextSpan = $("<span>")
@@ -183,7 +185,7 @@
             .text("Click for directions and form");
 
           // Append the span to the tooltip div
-          tooltipDiv.append(tooltipTextSpan);
+          hospitalTextDiv.append(tooltipTextSpan);
 
           // Create the waitTime div with the class 'waitTime' and its content
           var waitTimeDiv = $("<div>").addClass("waitTime").attr("id", divId);
@@ -197,7 +199,7 @@
           waitTimeDiv.append(waitTimeParagraph, dateParagraph);
 
           // Append the tooltip and waitTime divs to the main container div
-          hospitalDiv.append(tooltipDiv, waitTimeDiv);
+          hospitalDiv.append(hospitalTextDiv, waitTimeDiv);
 
           // Append the main container div to the body or any other desired element
           $("#main").append(hospitalDiv);
