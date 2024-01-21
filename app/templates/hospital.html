@@ -8,6 +8,7 @@
 </head>
 <body class="hospital">
     <div class="main">
+        <p class="pageConnecter"><a href="{{ url_for('index') }}">Go back</a></p> 
         <h2 class="header">HOSPITAL NAME</h2>
         <container class="hospitalInside">
             <div class="map">
@@ -22,7 +23,7 @@
                 </div>
 
                 <div class="action">
-                    <button>Send your forms</button>
+                    <button><a href="{{ url_for('submit_form') }}">Send your form</a></button>
                 </div>
 
             </container>

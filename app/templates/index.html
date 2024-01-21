@@ -85,7 +85,10 @@
     />
     <title>ERBC</title>
     <!-- stylesheet -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="icon/favicon.ico" />
     <!-- fontawesome -->
@@ -100,11 +103,15 @@
     <section id="logo" class="mx-auto mx-5">
       <div class="fixed-top">
         <a class="logo" href="index.html">
-          <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo"
+          <img
+            class="logo"
+            src="{{ url_for('static', filename='images/logo.png') }}"
+            alt="logo"
         /></a>
       </div>
     </section>
     <!-- search and location -->
+
     <section id="search-location" class="mx-auto mx-5">
       <div class="search-bar">
         <form action="/action_page.php">
@@ -114,22 +121,33 @@
       </div>
       <div class="location-bar">
         <p>Use your location</p>
-
-        <button type="submit"><i class="fa fa-location"></i></button>
+        <button type="button" id="locationBtn">
+          <i class="fa fa-location"></i>
+        </button>
       </div>
     </section>
 
     <section id="main" class="mx-auto mx-5">
       <!-- <div class="bubble">
         <div class="tooltip">
-          Hospital 1
+          <span class="text">Hospital 1</span>
           <span class="tooltiptext">Click for directions and form</span>
         </div>
         <div class="waitTime">
           <p>Wait Time: 30 minutes</p>
         </div>
-      </div> -->
+      </div>
+      <div id="nearestHospitals"></div>
+      <!-- Container for displaying nearest hospitals -->
     </section>
+
+    <!-- JavaScript for location retrieval and hospital calculation -->
+
+    <script
+      defer
+      src="{{ url_for('static', filename='script/script.js') }}"
+    ></script>
+
     <!-- main -->
   </body>
 </html>
