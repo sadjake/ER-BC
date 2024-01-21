@@ -84,13 +84,21 @@ button {
   border-radius: 50%;
 }
 
+/* search and location !!! */
+#search-location {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px; /* Adjust as needed */
+  padding-bottom: 3%;
+}
+
 /* index search bar */
 .search-bar button {
-  float: right;
   padding: 6px 10px;
   margin-top: 8px;
 
-  background: #fff;
+  background: #d7e3fb;
   font-size: 17px;
   border: none;
   cursor: pointer;
@@ -108,14 +116,19 @@ button {
 /* location-bar styles */
 
 .location-bar button {
-  float: right;
-  padding: 6px 10px;
-  margin-top: 8px;
-
+  padding: 8px;
   background: #fff;
   font-size: 17px;
   border: none;
   cursor: pointer;
+}
+.location-bar p {
+  margin-right: 10px; /* Adjust as needed */
+}
+
+.location-bar {
+  display: flex;
+  align-items: center;
 }
 
 /*logo */
@@ -181,4 +194,5 @@ button {
   padding: 10px; /* Adjust as needed */
   border-radius: 6px; /* Match the border-radius to the tooltip */
   margin-top: 10px; /* Adjust as needed */
+  text-align: right;
 }

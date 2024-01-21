@@ -19,6 +19,8 @@
       src="https://kit.fontawesome.com/5db186dfe3.js"
       crossorigin="anonymous"
     ></script>
+    <!-- Google Maps JavaScript API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places"></script>
   </head>
 
   <body>
@@ -34,6 +36,7 @@
       </div>
     </section>
     <!-- search and location -->
+
     <section id="search-location" class="mx-auto mx-5">
       <div class="search-bar">
         <form action="/action_page.php">
@@ -43,8 +46,9 @@
       </div>
       <div class="location-bar">
         <p>Use your location</p>
-
-        <button type="submit"><i class="fa fa-location"></i></button>
+        <button type="button" id="locationBtn">
+          <i class="fa fa-location"></i>
+        </button>
       </div>
     </section>
 
@@ -59,6 +63,14 @@
         </div>
       </div>
     </section>
+
+    <!-- JavaScript for location retrieval and hospital calculation -->
+
+    <script
+      defer
+      src="{{ url_for('static', filename='script/script.js') }}"
+    ></script>
+
     <!-- main -->
   </body>
 </html>
