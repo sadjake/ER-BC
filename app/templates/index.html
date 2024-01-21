@@ -8,7 +8,10 @@
     />
     <title>ERBC</title>
     <!-- stylesheet -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="icon/favicon.ico" />
     <!-- fontawesome -->
@@ -23,7 +26,10 @@
     <section id="logo" class="mx-auto mx-5">
       <div class="fixed-top">
         <a class="logo" href="index.html">
-          <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo"
+          <img
+            class="logo"
+            src="{{ url_for('static', filename='images/logo.png') }}"
+            alt="logo"
         /></a>
       </div>
     </section>
@@ -45,7 +51,7 @@
     <section id="main" class="mx-auto mx-5">
       <div class="bubble">
         <div class="tooltip">
-          Hospital 1
+          <span class="text">Hospital 1</span>
           <span class="tooltiptext">Click for directions and form</span>
         </div>
         <div class="waitTime">

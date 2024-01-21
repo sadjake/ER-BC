@@ -113,23 +113,31 @@ button {
 }
 
 /* tooltip hovers */
+.bubble {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+}
 
 .tooltip {
   position: relative;
   display: inline-block;
-  width: relative;
+}
+
+.text {
+  background-color: white; /* Set the background color for the text */
+  padding: 5px 10px; /* Adjust as needed */
+  border-radius: 6px; /* Match the border-radius to the tooltip */
 }
 
 .tooltip .tooltiptext {
   visibility: hidden;
-
   background-color: black;
   color: #fff;
   text-align: center;
   padding: 5px 0;
   border-radius: 6px;
 
-  /* Position the tooltip text - see examples below! */
   position: absolute;
   z-index: 1;
 }
@@ -150,21 +158,14 @@ button {
   background: #d7e3fb;
 }
 
-.tooltip:hover {
-  visibility: visible;
+.tooltip:hover .text {
   background: #3679ff;
+  color: white;
 }
-
-/* body bubbles */
-
-.bubble {
-  background-color: white;
-  padding: 15px;
-  border-radius: 10px;
-}
-
-/* wait times */
 
 .waitTime {
-  text-align: right;
+  background-color: white; /* Set the background color for the wait time text */
+  padding: 10px; /* Adjust as needed */
+  border-radius: 6px; /* Match the border-radius to the tooltip */
+  margin-top: 10px; /* Adjust as needed */
 }
