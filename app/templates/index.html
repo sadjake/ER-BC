@@ -147,14 +147,14 @@
         const nearestHospitalsContainer = $("#nearestHospitals");
         nearestHospitalsContainer.html("<h2>Nearest Hospitals:</h2>");
 
-
-        sortedHospitals.forEach((hospital, index) => {
+        sortedHospitals.forEach((hospital) => {
           console.log(hospital);
           const divId = `div-${hospital.id}`;
           console.log(divId)
+          const hospitalDiv = $("#" + divId)
           
           $("#" + divId).append(
-            `<p>Hospital ${index + 1}: - Distance: ${hospital.distance.toFixed(2)} km</p>`
+            `Distance: ${hospital.distance.toFixed(2)} km</p>`
           );
         });
       }
