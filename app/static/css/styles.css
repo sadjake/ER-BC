@@ -181,4 +181,5 @@ button {
   padding: 10px; /* Adjust as needed */
   border-radius: 6px; /* Match the border-radius to the tooltip */
   margin-top: 10px; /* Adjust as needed */
+  text-align: right;
 }
