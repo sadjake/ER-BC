@@ -168,3 +168,48 @@ button {
 .waitTime {
   text-align: right;
 }
+
+.form-inputs input {
+  padding: 6px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 17px;
+  border: none;
+  background: #d7e3fb;
+  border-radius: 10px;
+  display:inline-block;
+  width:200px;
+  margin-left:100px;
+  margin-right:600px;
+  text-align:left;
+}
+
+.form-inputs select {
+  padding: 6px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 17px;
+  border: none;
+  background: #d7e3fb;
+  border-radius: 10px;
+  display:inline-block;
+  width:200px;
+  margin-left:100px;
+  margin-right:600px;
+  text-align:left;
+}
+
+.form-inputs textarea {
+  padding: 6px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 17px;
+  border: none;
+  background: #d7e3fb;
+  border-radius: 10px;
+  display:inline-block;
+  width:200px;
+  margin-left:100px;
+  margin-right:600px;
+  text-align:left;
+}
