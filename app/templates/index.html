@@ -181,7 +181,7 @@
 
           // Create the tooltip div with the class 'tooltip' and its content
           var hospitalTextDiv = $("<div>").addClass("tooltip");
-          var hospitalText = $(`<a href="hospital/${id}">`).text(name);
+          var hospitalText = $(`<a href="hospital/${id}"><strong>${name}</strong></a>`);
           hospitalTextDiv.append(hospitalText);
 
           // Create the span with the class 'tooltiptext' and its content
@@ -241,7 +241,7 @@
       href="{{ url_for('static', filename='css/styles.css') }}"
     />
     <!-- favicon -->
-    <link rel="icon" type="image/x-icon" href="icon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/icon/favicon.ico') }}" />
     <!-- fontawesome -->
     <script
       src="https://kit.fontawesome.com/5db186dfe3.js"
@@ -290,7 +290,7 @@
       </div>
     -->
       <div id="nearestHospitals">
-        Container for displaying nearest hospitals
+        
       </div>
     </section>
 
