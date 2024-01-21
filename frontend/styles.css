@@ -2,7 +2,11 @@ body {
   background-image: linear-gradient(to left, #e8f9f6, #fffaeb, #d7e3fb);
   font-family: Arial, Helvetica, sans-serif;
   color: #090f22;
+  max-width: 60%;
+  margin: auto;
+}
 
+.hospital {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,18 +15,56 @@ body {
 }
 
 .main {
-  background-color: rgba(52, 84, 158, 0.5);
+  background-color: rgba(52, 84, 158, 0.3);
   opacity: 0.8;
   padding: 30px;
-  border-radius: 10%;
+  border-radius: 30px;
 }
 
-.hospitalInside {
-  display: flex;
+.header {
+  font-size: 40px;
+}
+
+.subheader {
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #090f22;
 }
 
 .map {
   padding: 10px;
+}
+
+.action {
+  padding-top: 40px;
+}
+
+.rightSide {
+  padding: 20px;
+}
+
+.waitTime {
+  background-color: #f5f5f5;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.bigTime {
+  font-size: 40px;
+  font-size: 30px;
+}
+
+.waitTime p {
+  font-size: 15px;
+}
+
+button {
+  padding: 25px;
+  border-radius: 15px;
+  border-width: 2px;
+  border-color: #d7e3fb;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .rounded {
@@ -34,7 +76,7 @@ body {
   float: right;
   padding: 6px 10px;
   margin-top: 8px;
-  margin-right: 16px;
+
   background: #fff;
   font-size: 17px;
   border: none;
@@ -47,15 +89,16 @@ body {
   font-size: 17px;
   border: none;
   background: #d7e3fb;
+  border-radius: 10px;
 }
 
-/*location-bar styles */
+/* location-bar styles */
 
 .location-bar button {
   float: right;
   padding: 6px 10px;
   margin-top: 8px;
-  margin-right: 16px;
+
   background: #fff;
   font-size: 17px;
   border: none;
@@ -64,6 +107,64 @@ body {
 
 /*logo */
 .logo {
-  height: 5vh;
-  background: url("images/logo.png");
+  padding-top: 3%;
+  padding-bottom: 3%;
+  height: 10vh;
+}
+
+/* tooltip hovers */
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  width: relative;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 100%; /* To the left of the tooltip */
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  background: #d7e3fb;
+}
+
+.tooltip:hover {
+  visibility: visible;
+  background: #3679ff;
+}
+
+/* body bubbles */
+
+.bubble {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/* wait times */
+
+.waitTime {
+  text-align: right;
 }
