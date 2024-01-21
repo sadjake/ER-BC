@@ -1,9 +1,20 @@
+from threading import Lock
 from flask import Flask, render_template, redirect, url_for
+from flask_socketio import SocketIO, emit
+import requests
+import datetime
+
 from form.forms import PatientRegistrationForm
-from wait_time import WaitTime
+from wait_time.wait_time import WaitTime
+from hospitals.hospitals import hospitals
 
 app = Flask(__name__, static_url_path='/static')
 app.config['SECRET_KEY'] = 'secret_key'
+
+async_mode = None
+socketio = SocketIO(app, async_mode=async_mode)
+thread = None
+thread_lock = Lock()
 
 @app.route('/')
 def index():
@@ -55,5 +66,41 @@ def hospital_page():
     # render a hospital page or redirect to another page
     return render_template('hospital.html')
 
+
+
+wait_times = []
+for hospital_data in hospitals:
+    wait_times.append(WaitTime(hosp_id=hospital_data["id"], hospital_name=hospital_data["name"], wait_time=hospital_data["wait_time"]))
+
+def wait_times_thread():
+    """Example of how to send server generated events to clients."""
+    count = 0
+    while True:
+        socketio.sleep(5)
+        count += 1
+        data = {}
+        for wait_time_data in wait_times:
+            hosp_id = wait_time_data.get_id()
+            hospital_name = wait_time_data.get_hospital_name()
+            wait_time_data.update_wait_time()
+            wait_time = wait_time_data.get_wait_time()
+            date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            data[hosp_id] = {
+                "name": hospital_name,
+                "wait_time": wait_time,
+                "date": date
+            }
+
+        socketio.emit('wait_time',
+                      {'data': data})
+
+@socketio.on('connect')
+def connect():
+    global thread
+    with thread_lock:
+        if thread is None:
+            thread = socketio.start_background_task(wait_times_thread)
+    emit('connected', {'data': 'New client connected'})
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    socketio.run(app, debug=True)

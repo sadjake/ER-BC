@@ -1,7 +1,8 @@
 import random
 
 class WaitTime():
-    def __init__(self, hospital_name, wait_time):
+    def __init__(self, hosp_id, hospital_name, wait_time):
+        self._id = hosp_id
         self._hospital_name = hospital_name
         self._wait_time = wait_time
     
@@ -13,6 +14,9 @@ class WaitTime():
             self._wait_time += delta_time
         else:
             self._wait_time -= random.randint(1, 5)
+
+    def get_id(self):
+        return self._id
 
     def get_wait_time(self):
         return self._wait_time
