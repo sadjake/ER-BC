@@ -4,28 +4,15 @@
   src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <script src="https://cdn.socket.io/4.7.4/socket.io.min.js" integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4" crossorigin="anonymous"></script>
   <script type="text/javascript" charset="utf-8">
-  $(document).ready(function() {
+  $(document).ready(() => {
       // Connect to the Socket.IO server.
       // The connection URL has the following format, relative to the current page:
       //     http[s]://<domain>:<port>[/<namespace>]
       var socket = io();
 
-      // Event handler for server sent data.
-      // The callback function is invoked whenever the server emits data
-      // to the client. The data is then displayed in the "Received"
-      // section of the page.
-      // socket.on('my_response', function(msg, cb) {
-      //     $('#log').append('<br>' + $('<div/>').text('Received #' + msg.count + ': ' + JSON.stringify(msg.data)).html());
-      //     if (cb)
-      //         cb();
-      // });
-
       socket.on('connected', (msg) => {
           console.log('connected to server.');
-      });
-      
 
-      socket.on('wait_time', (msg) => {
           const hospitalData = msg.data;
           Object.entries(hospitalData).forEach(([id, props]) => {
             const name = props.name;
@@ -34,16 +21,10 @@
 
             const divId = `div-${id}`;
             const waitTimeTextId = `wait-time-p-${id}`;
+            const dateTextId = `date-${id}`;
             
-            const waitTimeText = 'Wait time: '+ waitTime +' minutes';
-
-            // if not first load: update
-            if($('#' + divId).length > 0) {
-              console.log(waitTimeText);
-              $('#'+ waitTimeTextId).text(waitTimeText);
-              return;
-            }
-            // else on first load: create html
+            const waitTimeText = 'Wait time: ' + waitTime +' minutes';
+            const dateText = 'Last Updated: ' + date;
   
             // Create the main container div with the class 'bubble'
             var hospitalDiv = $('<div>').addClass('bubble').attr('id', divId);
@@ -59,31 +40,42 @@
 
             // Create the waitTime div with the class 'waitTime' and its content
             var waitTimeDiv = $('<div>').addClass('waitTime').attr('id', divId);
-            // Creating a <p> element
+            // Creating <p> elements
             var waitTimeParagraph = $('<p>').text(waitTimeText).attr('id', waitTimeTextId);
+            var dateParagraph = $('<p>').text(dateText).attr('id', dateTextId);
 
             // Appending the <p> element to the waitTimeDiv
-            waitTimeDiv.append(waitTimeParagraph);
+            waitTimeDiv.append(waitTimeParagraph, dateParagraph);
 
             // Append the tooltip and waitTime divs to the main container div
             hospitalDiv.append(tooltipDiv, waitTimeDiv);
 
             // Append the main container div to the body or any other desired element
             $('#main').append(hospitalDiv); 
-        });
-          
-      })
+        
+      });
 
-      // fetch('/test')
-      // .then(response => response.json())
-      // .then(msg => {
-      //     console.log(msg);
-      //     $('#log').append('<br>' + $('<div/>').text(msg.data).html());
-      // })
-      // .catch(error => {
-      //     console.error('Error:', error);
-      // });
+      
+
+      socket.on('wait_time_update', (msg) => {
+          const hospitalData = msg.data;
+          Object.entries(hospitalData).forEach(([id, props]) => {
+            const waitTimeTextId = `wait-time-p-${id}`;
+            const dateTextId = `date-${id}`;
+            
+            const waitTimeText = 'Wait time: ' + props.wait_time + ' minutes';
+            const dateText = 'Last Updated: ' + props.date;
+
+            //  update
+           
+            $('#' + waitTimeTextId).text(waitTimeText);
+            $('#' + dateTextId).text(dateText);
+            
+        });    
+      })
+      
     });
+  })
   </script>
   <head>
     <meta charset="UTF-8" />
@@ -128,7 +120,7 @@
     </section>
 
     <section id="main" class="mx-auto mx-5">
-      <div class="bubble">
+      <!-- <div class="bubble">
         <div class="tooltip">
           Hospital 1
           <span class="tooltiptext">Click for directions and form</span>
@@ -136,7 +128,7 @@
         <div class="waitTime">
           <p>Wait Time: 30 minutes</p>
         </div>
-      </div>
+      </div> -->
     </section>
     <!-- main -->
   </body>
