@@ -18,7 +18,15 @@ thread_lock = Lock()
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', hospitals=hospitals)
+
+@app.route('/hospital/<string:hospital_id>')
+def hospital_detail(hospital_id):
+    hospital = next((h for h in hospitals if h["id"] == hospital_id), None)
+    if hospital:
+        return render_template('hospital.html', hospital=hospital)
+    else:
+        return "Hospital not found", 404
 
 @app.route('/submit_form', methods=['GET', 'POST'])
 def submit_form():

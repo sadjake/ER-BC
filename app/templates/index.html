@@ -30,7 +30,7 @@
             var hospitalDiv = $('<div>').addClass('bubble').attr('id', divId);
 
             // Create the tooltip div with the class 'tooltip' and its content
-            var tooltipDiv = $('<div>').addClass('tooltip').text(name);
+            var tooltipDiv = $('<div>').addClass('tooltip').html(`<a href="/hospital/${id}">${name}</a>`);
 
             // Create the span with the class 'tooltiptext' and its content
             var tooltipTextSpan = $('<span>').addClass('tooltiptext').text('Click for directions and form');

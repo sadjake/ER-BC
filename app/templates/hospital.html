@@ -1,38 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tentName Hospital</title>
+    <title>{{ hospital['name'] }} Hospital</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
 </head>
+
 <body class="hospital">
     <div class="main">
 
-        {% for hospital in hospitals %}
-            <p class="pageConnecter"><a href="{{ url_for('index') }}">Go back</a></p> 
-            <h2 class="header">{{ hospital['name'] }}</h2>
-            <container class="hospitalInside">
-                <p>Phone: {{ hospital['phone-number'] }} </p>
-                <p>Address: {{ hospital['location'] }} </p>
-                <div class="map">
-                    <iframe class="" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBZLF6d9OhEH6aW6J0AlySGb3JBgytUeIU&q={{ hospital['lat'] }},{{ hospital['lng'] }}" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <p class="pageConnecter"><a href="{{ url_for('index') }}">Go back</a></p>
+        <h2 class="header">{{ hospital['name'] }}</h2>
+        <container class="hospitalInside">
+            <p>Phone: {{ hospital['phone-number'] }} </p>
+            <p>Address: {{ hospital['location'] }} </p>
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBZLF6d9OhEH6aW6J0AlySGb3JBgytUeIU&q={{ hospital['lat'] }},{{ hospital['lng'] }}" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <container class="rightSide">
+                <h3 class="subheader">Estimated Wait Time:</h3>
+                <div class="waitTime">
+                    <h3 class="bigTime" id="wait-time">{{ hospital['wait_time'] }} minutes</h3>
+                    <p>Last updated: {{ hospital['date'] }}</p>
                 </div>
-                <container class="rightSide">
-                    <h3 class="subheader">Estimated Wait Time:</h3>
-                    <div class="waitTime">
-                        <h3 class="bigTime">X minutes</h3>
-                        <p>Last updated: 2024-01-21 0:50:32</p>
-                    </div>
-        {% endfor %}
 
-                    <div class="action">
-                        <button><a href="{{ url_for('submit_form') }}">Send your form</a></button>
-                    </div>
-
+                <div class="action">
+                    <button><a href="{{ url_for('submit_form') }}">Send your form</a></button>
+                </div>
             </container>
         </container>
     </div>
-    
+
+    <script>
+        // Add a script to update wait time dynamically using Socket.IO
+        var socket = io();
+
+        socket.on('wait_time_update', (msg) => {
+            const updatedWaitTime = msg.data.wait_time;
+            const lastUpdated = msg.data.date;
+
+            // Update the wait time and last updated time on the page
+            document.getElementById('wait-time').innerText = updatedWaitTime + ' minutes';
+            document.getElementById('last-updated').innerText = 'Last updated: ' + lastUpdated;
+        });
+    </script>
 </body>
+
 </html>
