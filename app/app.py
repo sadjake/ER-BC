@@ -64,7 +64,7 @@ def confirmation_page():
 @app.route('/hospital')
 def hospital_page():
     # render a hospital page or redirect to another page
-    return render_template('hospital.html')
+    return render_template('hospital.html', hospitals=hospitals)
 
 
 
