@@ -182,38 +182,41 @@
           const waitTimeText = "Wait time: " + waitTime + " minutes";
           const dateText = "Last Updated: " + date;
 
-          // Create the main container div with the class 'bubble'
-          var hospitalDiv = $("<div>").addClass("bubble").attr("id", divId);
+         // Create the main container div with the class 'bubble'
+         
+        var hospitalDiv = $("<div>").addClass("bubble").attr("id", divId);
 
-          // Create the tooltip div with the class 'tooltip' and its content
-          var hospitalTextDiv = $("<div>").addClass("tooltip");
-          var hospitalText = $(`<a href="hospital/${id}"><strong>${name}</strong></a>`);
-          hospitalTextDiv.append(hospitalText);
+// Create the tooltip div with the class 'tooltip' and its content
+var hospitalTextDiv = $("<div>").addClass("tooltip");
+var hospitalText = $(`<a href="hospital/${id}"><strong class="hospital-name">${name}</strong></a>`);
+// Add a class 'hospital-name' to the <strong> element for styling
+hospitalTextDiv.append(hospitalText);
 
-          // Create the span with the class 'tooltiptext' and its content
-          var tooltipTextSpan = $("<span>")
-            .addClass("tooltiptext")
-            .text("Click for directions and form");
+// Create the span with the class 'tooltiptext' and its content
+var tooltipTextSpan = $("<span>")
+  .addClass("tooltiptext")
+  .text("Click for directions and form");
 
-          // Append the span to the tooltip div
-          hospitalTextDiv.append(tooltipTextSpan);
+// Append the span to the tooltip div
+hospitalTextDiv.append(tooltipTextSpan);
 
-          // Create the waitTime div with the class 'waitTime' and its content
-          var waitTimeDiv = $("<div>").addClass("waitTime").attr("id", divId);
-          // Creating <p> elements
-          var waitTimeParagraph = $("<p>")
-            .text(waitTimeText)
-            .attr("id", waitTimeTextId);
-          var dateParagraph = $("<p>").text(dateText).attr("id", dateTextId);
+// Create the waitTime div with the class 'waitTime' and its content
+var waitTimeDiv = $("<div>").addClass("waitTime").attr("id", divId);
+// Creating <p> elements
+var waitTimeParagraph = $("<p>")
+  .text(waitTimeText)
+  .attr("id", waitTimeTextId);
+var dateParagraph = $("<p>").text(dateText).attr("id", dateTextId);
 
-          // Appending the <p> element to the waitTimeDiv
-          waitTimeDiv.append(waitTimeParagraph, dateParagraph);
+// Appending the <p> element to the waitTimeDiv
+waitTimeDiv.append(waitTimeParagraph, dateParagraph);
 
-          // Append the tooltip and waitTime divs to the main container div
-          hospitalDiv.append(hospitalTextDiv, waitTimeDiv);
+// Append the tooltip and waitTime divs to the main container div
+hospitalDiv.append(hospitalTextDiv, waitTimeDiv);
 
-          // Append the main container div to the body or any other desired element
-          $("#main").append(hospitalDiv);
+// Append the main container div to the body or any other desired element
+$("#main").append(hospitalDiv);
+
         });
       })
         socket.on("wait_time_update", (msg) => {
